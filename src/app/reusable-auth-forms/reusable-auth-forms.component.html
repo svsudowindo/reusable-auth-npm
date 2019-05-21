@@ -1,0 +1,39 @@
+<div>
+  <form class="float-labels" [formGroup]="dynamicForm" (ngSubmit)="formSubmit()">
+    <div class="container my-2-em">
+      <ng-container *ngFor="let formField of formInfo">
+        <div class="row">
+          <div class="col-md-12 mx-auto">
+            <ng-container *ngIf="isTextField(formField.type)">
+              <div class="form-group has-search">
+                <div>
+                  <label [for]="formField.id">{{formField.label}}</label>
+                  <input [type]="formField.type" [id]="formField.id" class="form-control" [formControlName]="formField.formControlName"
+                    [required]="formField.required">
+                </div>
+                <div style="color: red" *ngIf="dynamicForm.get(formField.formControlName).invalid && dynamicForm.get(formField.formControlName).touched">
+                  {{ getErrorMessage(dynamicForm, validation_messages, formField.formControlName) }}
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="isButton(formField.type)">
+              <button [disabled]="isFormValid()" [type]="formField.type" class="btn btn-primary btn-block border-radius-25 m-t-50">{{formField.label
+                | titlecase}}</button>
+            </ng-container>
+            <ng-container *ngIf="isLink(formField.type)">
+              <div class="m-t-40">
+                <p class="font-weight-500 font-size-14 m-b-0" *ngIf="formField.hasDescription">
+                  {{formField.description}}
+                </p>
+                <a [id]="formField" class="register-link" routerLink="{{formField.navigationPath}}">
+                  {{formField.label}}
+                </a>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+      </ng-container>
+    </div>
+  </form>
+</div>
