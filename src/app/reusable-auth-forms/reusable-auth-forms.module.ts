@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReusableAuthFormsComponent } from './reusable-auth-forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ReusableAuthFormsService } from './reusable-auth-forms.service';
 
 @NgModule({
   declarations: [ReusableAuthFormsComponent],
@@ -13,6 +14,9 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     ReusableAuthFormsComponent
+  ],
+  providers: [
+    ReusableAuthFormsService
   ]
 })
 export class ReusableAuthFormsModule { }
