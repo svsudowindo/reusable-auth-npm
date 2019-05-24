@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ReusableAuthFormsModule } from './reusable-auth-forms/reusable-auth-forms.module';
 import { RouterModule, Routes } from '@angular/router';
+import { VerifyOTPModule } from './verify-otp/verify-otp.module';
 
 const routes: Routes = [];
 @NgModule({
@@ -13,7 +14,8 @@ const routes: Routes = [];
   imports: [
     BrowserModule,
     ReusableAuthFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    VerifyOTPModule
   ],
   providers: [],
   bootstrap: [AppComponent]

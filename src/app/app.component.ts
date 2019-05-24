@@ -7,6 +7,7 @@ import { FORM_TYPES, VALIDATION_PATTERNS, VALIDATION_TYPES } from './reusable-au
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  digitsOfOTP = 6;
   loginForm = [
     {
       type: FORM_TYPES.TEXT,
@@ -42,4 +43,7 @@ export class AppComponent {
       navigationPath: '/registration'
     }
   ];
+  OTPSubmit(value) {
+    console.log(value);
+  }
 }
