@@ -28,13 +28,14 @@ export class VerifyOTPComponent implements OnChanges {
     this.OTPForm = this._formBuilder.group({
       OTPFields: this._formBuilder.array([this.OTPGroup()])
     });
-
+    if (typeof this.digitsOfOTP === 'string') {
+      this.digitsOfOTP = parseInt(this.digitsOfOTP, 10);
+    }
     if (this.digitsOfOTP !== undefined && this.digitsOfOTP > 0) {
       for (let i = 0 ; i < this.digitsOfOTP - 1 ; i++) {
         this.addOTPcontrol();
       }
     }
-    console.log(this.OTPForm);
   }
 
   addOTPcontrol() {
