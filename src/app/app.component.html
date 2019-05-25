@@ -1,3 +1,11 @@
 <!-- <app-reusable-auth-forms [formInfo]="loginForm" ></app-reusable-auth-forms> -->
-<app-svsudo-verify-otp title="Enter OTP" subTitle="OTP will be sent to your mobile number. Please verify."
-buttonLabel="VERIFY OTP" digitsOfOTP="6" (OTPSubmit)="OTPSubmit($event)"></app-svsudo-verify-otp>
+<!-- <app-svsudo-verify-otp title="Enter OTP" subTitle="OTP will be sent to your mobile number. Please verify."
+buttonLabel="VERIFY OTP" digitsOfOTP="6" (OTPSubmit)="OTPSubmit($event)"></app-svsudo-verify-otp> -->
+
+<app-svsudo-shopping-cart 
+            title="Shopping cart name" 
+            subtitle="sub title"
+            continueLabel="contine Shopping"
+            showShadowForProduct="true"
+            showShadowForMainContent="true"
+            [productList]="productList"></app-svsudo-shopping-cart>

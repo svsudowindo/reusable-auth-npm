@@ -1,0 +1,55 @@
+<div class="container main-container" [ngClass]="showShadowForMainContent ? 'shadow' : 'no-shadow'">
+  <ng-container *ngIf="title">
+    <div class="d-flex justify-content-center">
+      <p class="main-title">{{title | uppercase}}</p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="subtitle || continueLabel">
+    <div class="d-flex justify-content-between border-line-2 p-10 align-middle" [ngClass]="title ? '' : 'm-t-20'">
+      <span class="subtitle">{{subtitle | titlecase}}</span>
+      <ng-container *ngIf="continueLabel">
+        <button class="btn continue-label btn-primary">
+          {{ continueLabel | titlecase}}
+        </button>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="container m-t-20 ">
+      <ng-container *ngFor="let product of productList">
+        <div class="card products m-t-20" [ngClass]="showShadowForProduct ? 'shadow' : 'no-shadow'">
+          <div class="card-body d-flex justify-content-between">
+            <div class="d-flex">
+              <div>
+                <img class="product-image" [src]="product.imgURL" height="150" width="150">
+              </div>
+              <div class="product-details">
+                <p class="product-id">
+                  {{product.id}}
+                </p>
+                <p class="product-name">
+                    {{product.name}}
+                  </p>
+                <p> <input type="text" class="qty" [placeholder]="product.selectedItemCount" />
+                  <span class="product-cost">x {{product.currency}}{{product.costPerItem | number:'0.2'}}</span>
+                  <span class="stock" [ngClass]="product.stockStatus === 'IN' ? 'stock-in':'stock-out'">{{product.stockStatus === 'IN' ? 'IN STOCK' : 'OUT OF STOCK'}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="product-summary my-5">
+              <p>
+                <span class="product-summary-cost">{{product.currency}}{{eachProductTotalCost(product) | number:'0.2'}}</span>
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <div class="d-flex">
+  </div>
+</div>
