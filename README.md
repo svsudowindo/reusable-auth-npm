@@ -23,6 +23,5 @@ OTPSubmit: number -> Returns Entered OTP value in number format.
 <app-svsudo-verify-otp title="Enter OTP" subTitle="OTP will be sent to your mobile number. Please verify." buttonLabel="VERIFY OTP" digitsOfOTP="6" (OTPSubmit)="OTPSubmit($event)"></app-svsudo-verify-otp>
 ```
 
-```bash
-![screenshot](https://github.com/svsudowindo/reusable-auth-npm/blob/master/src/app/verify-otp/otp_img.png "OTP screenshot")
-```
+![OTP_IMAGE](./src/app/verify-otp/otp_img.png "OTP")
+

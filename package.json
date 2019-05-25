@@ -1,5 +1,5 @@
 {
-  "name": "reusable-form-builder",
+  "name": "otp-angular-component",
   "version": "0.0.5",
   "scripts": {
     "ng": "ng",

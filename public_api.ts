@@ -1,2 +1,1 @@
-export * from './src/app/reusable-auth-forms/reusable-auth-forms.module';
-export * from './src/app/reusable-auth-forms/constants/validation-patterns';
+export * from './src/app/verify-otp/verify-otp.module';
