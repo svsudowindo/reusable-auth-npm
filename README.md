@@ -24,5 +24,5 @@ OTPSubmit: number -> Returns Entered OTP value in number format.
 ```
 
 ```bash
-![](./src/app/verify-otp/otp_img.png)
+![screenshot](./src/app/verify-otp/otp_img.png "OTP screenshot")
 ```
