@@ -8,4 +8,10 @@ buttonLabel="VERIFY OTP" digitsOfOTP="6" (OTPSubmit)="OTPSubmit($event)"></app-s
             continueLabel="contine Shopping"
             showShadowForProduct="true"
             showShadowForMainContent="true"
-            [productList]="productList"></app-svsudo-shopping-cart>
+            [productList]="productList"
+            currency="$"
+            shippingCost="50"
+            taxPercentage="5"
+            checkOutLabel="checkout"
+            (checkout)="checkout($event)"
+            (continue)="continue($event)"></app-svsudo-shopping-cart>

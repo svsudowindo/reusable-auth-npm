@@ -50,7 +50,6 @@ export class AppComponent {
       name: 'ITEM NAME',
       selectedItemCount: 2,
       costPerItem: 10.00,
-      currency: '$',
       stockStatus: 'IN',
       imgURL: 'https://www.kdcampus.org/frontend/img/live-test.jpg'
     },
@@ -59,12 +58,18 @@ export class AppComponent {
       name: 'ITEM NAME',
       selectedItemCount: 4,
       costPerItem: 5.00,
-      currency: '$',
       stockStatus: 'IN',
       imgURL: '../assets/choclate.jpg'
     }
   ];
   OTPSubmit(value) {
     console.log(value);
+  }
+  checkout(ev) {
+    console.log(ev);
+  }
+  continue(ev) {
+    console.log('continue emitter');
+    console.log(ev);
   }
 }

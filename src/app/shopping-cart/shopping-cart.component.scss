@@ -147,6 +147,36 @@ input.qty {
       }
     
 }
+
+.checkout-label {
+    border-color: #f69679;
+    text-decoration: none;
+    letter-spacing: 0.015em;
+    font-size: 1em;
+    color: #fff;
+    background: #f69679;
+    font-weight: bold;
+    border-radius: 50px;
+    text-align: right;
+    @include transition(all, .25s, linear);
+    &:after {
+        content: "\276f";
+        padding: .5em;
+        position: relative;
+        right:0;
+         @include transition(all, .15s, linear);
+        
+      }
+      &:hover , &:focus, &:active {
+        background: #689879;
+        border-color: #689879;
+        
+        &:after {
+          right: -10px;
+        }
+      }
+    
+}
 button.close {
     font-size: 36px;
     padding-left: 10px;
@@ -157,4 +187,24 @@ button.close:hover {
 }
 .m-t-20 {
     margin-top: 20px;
+}
+
+.footer-labels {
+    width: 120px;
+    text-align: right;
+    font-size: 20px;
+    color: #544f4f;
+}
+
+
+.footer-labels-total {
+    width: 120px;
+    text-align: right;
+    font-size: 22px;
+    color: #212020;
+    font-weight: 600;
+}
+
+.m-t-5 {
+    margin-top: 5px;
 }

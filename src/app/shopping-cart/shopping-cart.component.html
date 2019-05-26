@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between border-line-2 p-10 align-middle" [ngClass]="title ? '' : 'm-t-20'">
       <span class="subtitle">{{subtitle | titlecase}}</span>
       <ng-container *ngIf="continueLabel">
-        <button class="btn continue-label btn-primary">
+        <button class="btn continue-label btn-primary" (click)="continueEmitter()">
           {{ continueLabel | titlecase}}
         </button>
       </ng-container>
@@ -28,17 +28,23 @@
                   {{product.id}}
                 </p>
                 <p class="product-name">
-                    {{product.name}}
-                  </p>
-                <p> <input type="text" class="qty" [placeholder]="product.selectedItemCount" />
-                  <span class="product-cost">x {{product.currency}}{{product.costPerItem | number:'0.2'}}</span>
-                  <span class="stock" [ngClass]="product.stockStatus === 'IN' ? 'stock-in':'stock-out'">{{product.stockStatus === 'IN' ? 'IN STOCK' : 'OUT OF STOCK'}}</span>
+                  {{product.name}}
                 </p>
+                <form>
+                  <p>
+                    <input [ngModelOptions]="{standalone: true}" type="text" class="qty" [placeholder]="product.selectedItemCount"
+                      [(ngModel)]="product.selectedItemCount" numberOnly (keyup)="selectedItemChange($event)" />
+                    <span class="product-cost">x {{currency}}{{product.costPerItem | number:'0.2'}}</span>
+                    <span class="stock" [ngClass]="product.stockStatus === 'IN' ? 'stock-in':'stock-out'">{{product.stockStatus
+                      === 'IN' ? 'IN STOCK' : 'OUT OF STOCK'}}</span>
+                  </p>
+                </form>
+
               </div>
             </div>
             <div class="product-summary my-5">
               <p>
-                <span class="product-summary-cost">{{product.currency}}{{eachProductTotalCost(product) | number:'0.2'}}</span>
+                <span class="product-summary-cost">{{currency}}{{eachProductCost(product) | number:'0.2'}}</span>
                 <button type="button" class="close" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -50,6 +56,58 @@
       </ng-container>
     </div>
   </ng-container>
-  <div class="d-flex">
+  <div class="container d-flex m-t-20 justify-content-end">
+    <div class="d-flex">
+      <div class="footer-labels">
+        SUBTOTAL
+      </div>
+      <div class="footer-labels">
+        {{currency}}{{subTotal | number:'0.2'}}
+      </div>
+    </div>
   </div>
+
+  <div class="container d-flex m-t-5 justify-content-end">
+    <div class="d-flex">
+      <div class="footer-labels">
+        SHIPPING
+      </div>
+      <div class="footer-labels">
+        {{currency}}{{shippingCost | number: '0.2'}}
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-flex m-t-5 justify-content-end">
+    <div class="d-flex">
+      <div class="footer-labels">
+        TAX
+      </div>
+      <div class="footer-labels">
+        {{currency}}{{totalTax | number:'0.2'}}
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-flex m-t-5 justify-content-end">
+    <div class="d-flex">
+      <div class="footer-labels-total">
+        TOTAL
+      </div>
+      <div class="footer-labels-total">
+        {{currency}}{{totalCost | number:'0.2'}}
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="checkOutLabel">
+    <div class="d-flex justify-content-end p-10 align-middle" [ngClass]="title ? '' : 'm-t-20'">
+      <ng-container *ngIf="checkOutLabel">
+        <button class="btn checkout-label btn-primary" (click)="checkoutEmitter()">
+          {{ checkOutLabel | titlecase}}
+        </button>
+      </ng-container>
+    </div>
+  </ng-container>
+
 </div>
