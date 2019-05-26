@@ -14,9 +14,14 @@
       </ng-container>
     </div>
   </ng-container>
+  <ng-container *ngIf="productList === undefined || productList.length <= 0">
+    <h3 class="d-flex justify-content-center">
+      {{messageForNoItems !== undefined ? messageForNoItems : 'Your Shopping Cart is empty.'}}
+    </h3>
+  </ng-container>
   <ng-container>
     <div class="container m-t-20 ">
-      <ng-container *ngFor="let product of productList">
+      <ng-container *ngFor="let product of productList; let i=index">
         <div class="card products m-t-20" [ngClass]="showShadowForProduct ? 'shadow' : 'no-shadow'">
           <div class="card-body d-flex justify-content-between">
             <div class="d-flex">
@@ -45,7 +50,7 @@
             <div class="product-summary my-5">
               <p>
                 <span class="product-summary-cost">{{currency}}{{eachProductCost(product) | number:'0.2'}}</span>
-                <button type="button" class="close" aria-label="Close">
+                <button type="button" class="close" aria-label="Close" (click)="deleteProduct(i)">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </p>
@@ -56,58 +61,59 @@
       </ng-container>
     </div>
   </ng-container>
-  <div class="container d-flex m-t-20 justify-content-end">
-    <div class="d-flex">
-      <div class="footer-labels">
-        SUBTOTAL
-      </div>
-      <div class="footer-labels">
-        {{currency}}{{subTotal | number:'0.2'}}
+  <ng-container *ngIf="productList !== undefined && productList.length > 0">
+    <div class="container d-flex m-t-20 justify-content-end">
+      <div class="d-flex">
+        <div class="footer-labels">
+          SUBTOTAL
+        </div>
+        <div class="footer-labels">
+          {{currency}}{{subTotal | number:'0.2'}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container d-flex m-t-5 justify-content-end">
-    <div class="d-flex">
-      <div class="footer-labels">
-        SHIPPING
-      </div>
-      <div class="footer-labels">
-        {{currency}}{{shippingCost | number: '0.2'}}
+    <div class="container d-flex m-t-5 justify-content-end">
+      <div class="d-flex">
+        <div class="footer-labels">
+          SHIPPING
+        </div>
+        <div class="footer-labels">
+          {{currency}}{{shippingCost | number: '0.2'}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container d-flex m-t-5 justify-content-end">
-    <div class="d-flex">
-      <div class="footer-labels">
-        TAX
-      </div>
-      <div class="footer-labels">
-        {{currency}}{{totalTax | number:'0.2'}}
+    <div class="container d-flex m-t-5 justify-content-end">
+      <div class="d-flex">
+        <div class="footer-labels">
+          TAX
+        </div>
+        <div class="footer-labels">
+          {{currency}}{{totalTax | number:'0.2'}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container d-flex m-t-5 justify-content-end">
-    <div class="d-flex">
-      <div class="footer-labels-total">
-        TOTAL
-      </div>
-      <div class="footer-labels-total">
-        {{currency}}{{totalCost | number:'0.2'}}
+    <div class="container d-flex m-t-5 justify-content-end">
+      <div class="d-flex">
+        <div class="footer-labels-total">
+          TOTAL
+        </div>
+        <div class="footer-labels-total">
+          {{currency}}{{totalCost | number:'0.2'}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <ng-container *ngIf="checkOutLabel">
-    <div class="d-flex justify-content-end p-10 align-middle" [ngClass]="title ? '' : 'm-t-20'">
-      <ng-container *ngIf="checkOutLabel">
-        <button class="btn checkout-label btn-primary" (click)="checkoutEmitter()">
-          {{ checkOutLabel | titlecase}}
-        </button>
-      </ng-container>
-    </div>
+    <ng-container *ngIf="checkOutLabel">
+      <div class="d-flex justify-content-end p-10 align-middle" [ngClass]="title ? '' : 'm-t-20'">
+        <ng-container *ngIf="checkOutLabel">
+          <button class="btn checkout-label btn-primary" (click)="checkoutEmitter()">
+            {{ checkOutLabel | titlecase}}
+          </button>
+        </ng-container>
+      </div>
+    </ng-container>
   </ng-container>
-
 </div>

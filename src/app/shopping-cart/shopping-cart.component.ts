@@ -27,6 +27,8 @@ export class ShoppingCartComponent implements OnChanges {
   taxPercentage: number;
   @Input()
   checkOutLabel: string;
+  @Input()
+  messageForNoItems: string;
   subTotal: number;
   totalCost: number;
   totalTax: number;
@@ -103,5 +105,12 @@ export class ShoppingCartComponent implements OnChanges {
   }
   continueEmitter() {
     this.continue.emit();
+  }
+
+  deleteProduct(productIndex) {
+    if (this.productList && this.productList.length > 0) {
+        this.productList.splice(productIndex, 1);
+      this.calculateSubTotal();
+    }
   }
 }

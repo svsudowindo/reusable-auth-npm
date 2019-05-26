@@ -54,7 +54,7 @@ export class AppComponent {
       imgURL: 'https://www.kdcampus.org/frontend/img/live-test.jpg'
     },
     {
-      id: '#123456',
+      id: '#12345',
       name: 'ITEM NAME',
       selectedItemCount: 4,
       costPerItem: 5.00,
