@@ -49,7 +49,7 @@ export class ShoppingCartComponent implements OnChanges {
       this.shippingCost = parseInt(this.shippingCost, 10);
     }
     if (typeof this.taxPercentage === 'string') {
-      this.shippingCost = parseInt(this.taxPercentage, 10);
+      this.taxPercentage = parseInt(this.taxPercentage, 10);
     }
     this.calculateSubTotal();
   }
