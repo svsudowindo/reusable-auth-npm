@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FORM_TYPES, VALIDATION_PATTERNS, VALIDATION_TYPES } from './reusable-auth-forms/constants/validation-patterns';
+import { STOCK_STATUS } from './shopping-cart/shopping-cart-enum';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,7 @@ export class AppComponent {
       name: 'ITEM NAME',
       selectedItemCount: 2,
       costPerItem: 10.00,
-      stockStatus: 'IN',
+      stockStatus: STOCK_STATUS.IN,
       imgURL: 'https://www.kdcampus.org/frontend/img/live-test.jpg'
     },
     {
@@ -58,7 +59,7 @@ export class AppComponent {
       name: 'ITEM NAME',
       selectedItemCount: 4,
       costPerItem: 5.00,
-      stockStatus: 'IN',
+      stockStatus: STOCK_STATUS.OUT,
       imgURL: '../assets/choclate.jpg'
     }
   ];

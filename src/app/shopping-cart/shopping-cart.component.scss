@@ -144,10 +144,12 @@ input.qty {
         &:after {
           right: -10px;
         }
-      }
-    
+      }   
 }
 
+.continue-label:focus {
+    box-shadow: none;
+}
 .checkout-label {
     border-color: #f69679;
     text-decoration: none;
@@ -176,6 +178,9 @@ input.qty {
         }
       }
     
+}
+.checkout-label:focus {
+    box-shadow: none;
 }
 button.close {
     font-size: 36px;

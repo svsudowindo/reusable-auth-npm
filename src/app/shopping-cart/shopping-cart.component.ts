@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { STOCK_STATUS } from './shopping-cart-enum';
 
 @Component({
   selector: 'app-svsudo-shopping-cart',
@@ -36,6 +37,7 @@ export class ShoppingCartComponent implements OnChanges {
   checkout: EventEmitter<any> = new EventEmitter();
   @Output()
   continue: EventEmitter<any> = new EventEmitter();
+  STOCK_STATUS = STOCK_STATUS;
   constructor() { }
 
   ngOnChanges() {

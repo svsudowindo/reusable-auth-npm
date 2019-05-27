@@ -1,1 +1,2 @@
-export * from './src/app/verify-otp/verify-otp.module';
+export * from './src/app/shopping-cart/shopping-cart.module';
+export * from './src/app/shopping-cart/shopping-cart-enum';
