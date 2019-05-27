@@ -92,3 +92,21 @@ checkout -> Event Emitted when user clicks on checkout button with all the updat
 ###Sample Output
 ![sample_shopping_cart](https://user-images.githubusercontent.com/46681863/58400826-d4236b80-8079-11e9-8c6f-26948ef928d8.png)
 
+###Note
+
+```bash
+    1. Need to include bootstrap cdn in your application index.html. 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    2. By default fonts of all the lables will be as per your application defaults. If you want to use same fonts as in the screenshot Please include following cdn in your application index.html
+
+     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Stylish&display=swap"
+    rel="stylesheet"> 
+
+    and also include following css in application or global level css
+    body { 
+        margin: 0; 
+        font-family: 'Montserrat', sans-serif;
+        font-family: 'Roboto', sans-serif; 
+        font-family: 'Stylish', sans-serif;
+    }
+```
