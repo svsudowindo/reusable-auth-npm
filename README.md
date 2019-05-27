@@ -1,10 +1,8 @@
 #Shopping Cart Angular UI component
 ###Module 
-
 ```bash
 import {ShoppingCartModule} from 'shopping-cart-angular-ui';
 ```
-
 ###Include in module Section
 ```bash
 imports: [
@@ -12,26 +10,23 @@ imports: [
     ShoppingCartModule
 ]
 ```
-
 ###Selector
-
 ```bash
 <app-svsudo-shopping-cart></app-svsudo-shopping-cart>
 ```
-
 ###Input Parameters
 ```bash
-title: string -> Title on the top of page.
-subtitle: string -> subtitle to be shown.
-continueLabel: string - button label for continue shopping
-showShadowForProduct: boolean -> decide weather to background shadow for each product in the list.
-showShadowForMainContent: boolean -> decide weather to background shadow for main section of page.
-currency: string -> what type of currency using for this cart list.
-shippingCost: number -> Shipping cost for a particular place.
-taxPercentage: number -> total tax percentage for customers.
-checkOutLabel: string ->  label for checkout button.
-messageForNoItems: string -> Message to show when the cart dont have any selected products.
-productList: Array of product Objects -> List of products selected by customer. (Each Product should have minimum of values mentioned in Product structure section in this readme file).
+    title: string -> Title on the top of page.
+    subtitle: string -> subtitle to be shown.
+    continueLabel: string - button label for continue shopping
+    showShadowForProduct: boolean -> decide weather to background shadow for each product in the list.
+    showShadowForMainContent: boolean -> decide weather to background shadow for main section of page.
+    currency: string -> what type of currency using for this cart list.
+    shippingCost: number -> Shipping cost for a particular place.
+    taxPercentage: number -> total tax percentage for customers.
+    checkOutLabel: string ->  label for checkout button.
+    messageForNoItems: string -> Message to show when the cart dont have any selected products.
+    productList: Array of product Objects -> List of products selected by customer. (Each Product should have minimum of values mentioned in Product structure section in this readme file).
 ```
 ###Each Product Structure.
 ```bash
@@ -42,7 +37,6 @@ productList: Array of product Objects -> List of products selected by customer. 
     stockStatus: 'IN'/'OUT' -> Weather the stock exist or not. (Please use the enum mentioned below for stockstatus).
     imgURL: string -> Use either http URL or relative Path.
 ```
-
 ###STOCK_STATUS enum import
 ```bash
     import {STOCK_STATUS} from 'shopping-cart-angular-ui';
@@ -58,16 +52,13 @@ productList: Array of product Objects -> List of products selected by customer. 
 continue: void -> Event emitted when user clicks on contine button.
 checkout -> Event Emitted when user clicks on checkout button with all the updated data as mentioned is checkout emitted info section below.
 ```
-
 ###Checkout-emitted-info 
-
 ```bash
     productList: Holds list of products with updated values.
     subTotal: Holds sub-total of all products excluding tax and shipping
     totoalCost: Holds totoal cost of all products including sub-total, shipping, tax.
     totalTax: Holds the tax value on total bill not in percentage.
 ```
-
 ###Example Usage 
 ```bash
     <app-svsudo-shopping-cart 
@@ -85,7 +76,6 @@ checkout -> Event Emitted when user clicks on checkout button with all the updat
             (checkout)="checkout($event)"
             (continue)="continue($event)"></app-svsudo-shopping-cart>
 ```
-
 ```bash
     Emitted checkout and continue button events should be handled by developer in there respective components.
 ```
@@ -93,7 +83,6 @@ checkout -> Event Emitted when user clicks on checkout button with all the updat
 ![sample_shopping_cart](https://user-images.githubusercontent.com/46681863/58400826-d4236b80-8079-11e9-8c6f-26948ef928d8.png)
 
 ###Note
-
 ```bash
     1. Need to include bootstrap cdn in your application index.html. 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
