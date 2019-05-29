@@ -6,7 +6,7 @@ import { ReusableAuthFormsModule } from './reusable-auth-forms/reusable-auth-for
 import { RouterModule, Routes } from '@angular/router';
 import { VerifyOTPModule } from './verify-otp/verify-otp.module';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
-
+import { CardListModule } from 'projects/card-list/src/public_api';
 const routes: Routes = [];
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ const routes: Routes = [];
     ReusableAuthFormsModule,
     RouterModule.forRoot(routes),
     VerifyOTPModule,
-    ShoppingCartModule
+    ShoppingCartModule,
+    CardListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

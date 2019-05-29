@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "card-list": [
+        "dist/card-list"
+      ],
+      "card-list/*": [
+        "dist/card-list/*"
+      ]
+    }
   }
 }

@@ -1,7 +1,7 @@
 #Shopping Cart Angular UI component
 ###Module 
 ```bash
-import {ShoppingCartModule} from 'shopping-cart-angular-ui';
+import {ShoppingCartModule} from 'svng-shopping-cart';
 ```
 ###Include in module Section
 ```bash

@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "card-list": {
+      "root": "projects/card-list",
+      "sourceRoot": "projects/card-list/src",
+      "projectType": "library",
+      "prefix": "svng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/card-list/tsconfig.lib.json",
+            "project": "projects/card-list/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/card-list/src/test.ts",
+            "tsConfig": "projects/card-list/tsconfig.spec.json",
+            "karmaConfig": "projects/card-list/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/card-list/tsconfig.lib.json",
+              "projects/card-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "my-component-library"
