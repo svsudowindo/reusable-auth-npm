@@ -38,7 +38,7 @@
                 <form>
                   <p>
                     <input [ngModelOptions]="{standalone: true}" type="text" class="qty" [placeholder]="product.selectedItemCount"
-                      [(ngModel)]="product.selectedItemCount" numberOnly (keyup)="selectedItemChange($event)" />
+                      [(ngModel)]="product.selectedItemCount" numberOnly (keyup)="selectedItemChange($event, product)" />
                     <span class="product-cost">x {{currency}}{{product.costPerItem | number:'0.2'}}</span>
                     <span class="stock" [ngClass]="product.stockStatus === STOCK_STATUS.IN ? 'stock-in':'stock-out'">{{product.stockStatus
                       === STOCK_STATUS.IN ? 'IN STOCK' : 'OUT OF STOCK'}}</span>

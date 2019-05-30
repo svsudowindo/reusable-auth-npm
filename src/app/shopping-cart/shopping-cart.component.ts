@@ -68,10 +68,13 @@ export class ShoppingCartComponent implements OnChanges {
     return product.selectedItemCount * product.costPerItem;
   }
 
-  selectedItemChange(ev: KeyboardEvent) {
+  selectedItemChange(ev: KeyboardEvent, product) {
     const regex = new RegExp(/^[0-9]/);
     if (regex.test(ev.key) || ev.keyCode === 8) {
       // update amount of the product
+      if (typeof product.selectedItemCount === 'string' && product.selectedItemCount !== '') {
+        product.selectedItemCount = parseInt(product.selectedItemCount, 10);
+      }
       this.productList = this.productList;
       this.calculateSubTotal();
     }
